@@ -1,0 +1,24 @@
+.search
+  .search__box
+    .search__box__form
+      = form_with url: musics_search_only_songs_path, local: true, method: :get, html: { id: "search-form" } do |f|
+        = f.text_field :search, class: "text-field", placeholder: "search songs", autofocus: true
+        %button{type: "submit", class: "search-btn"}
+          %i.fas.fa-search.search-icon
+    .result-text search result
+    .result-text.under ↓please choose songs↓
+    .search__box__result
+      - if @songs.present?
+        - @songs.each_with_index do |song, i|
+          .contents_with_artists
+            = form_with url: new_post_path, local: true, method: :get do |f|
+              = f.hidden_field :song_id, value: song.id
+              = f.hidden_field :artist_id, value: @artists[i].id
+              .contents_with_artists__left
+                %button{type: "submit", class: "select-btn"}
+                  %p
+                    = song.name
+              .contents_with_artists__right
+                %button{type: "submit", class: "select-btn"}
+                  %p
+                    = @artists[i].name

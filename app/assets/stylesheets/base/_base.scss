@@ -1,0 +1,17 @@
+* {
+  background-color: black;
+  border-color: white;
+  color: white;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+@font-face {
+  font-family: 'rounded-mgenplus';
+  src: font-url('rounded-mgenplus-1p-black.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}

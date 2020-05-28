@@ -1,0 +1,93 @@
+.search {
+  height: calc(100vh - 70px);
+  &__box {
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    @include mq($breakpoint: md) {
+      margin: 0 auto;
+      height: 100%;
+      width: 40%;
+      border: 2px solid;
+      border-top: none;
+      text-align: center;
+    }
+    &__form {
+      height: 60px;
+      .text-field {
+        height: 40px;
+        line-height: 40px;
+        width: 80%;
+        margin: 10px;
+      }
+      .search-btn {
+        width: 10%;
+        outline: none;
+        border: none;
+        cursor: pointer;
+        .search-icon {
+          font-size: large;
+        }
+      }
+    }
+    .artist-name {
+      padding: 0 0 10px 0;
+      border-bottom: 2px solid;
+    }
+    .search-songs {
+      padding-bottom: 10px 10px;
+      border-bottom: 2px solid;
+      height: 30px;
+    }
+    .result-text {
+      text-align: center;
+      font-size: large;
+      margin: 0 10px;
+    }
+    .under {
+      border-bottom: 1px solid;
+    }
+    &__result {
+      height: calc(100vh - 214px);
+      width: 100%;
+      overflow: scroll;
+      .contents {
+        height: 40px;
+        width: 100%;
+        line-height: 40px;
+        border: none;
+        text-align: center;
+        form .select-btn {
+          font-size: large;
+          border-style: none;
+          cursor: pointer;
+          &:hover {
+            color: pink;
+          }
+        }
+      }
+      .contents_with_artists {
+        height: 40px;
+        width: 100%;
+        line-height: 40px;
+        text-align: center;
+        form {
+          display: flex;
+          justify-content: space-between;
+          padding: 5px 5px;
+          .select-btn {
+            font-size: large;
+            border-style: none;
+            cursor: pointer;
+          }
+        }
+        &:hover {
+          p {
+            color:pink;
+            pointer-events: auto;
+          }
+        }
+      }
+    }
+  }
+}

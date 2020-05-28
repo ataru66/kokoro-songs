@@ -1,0 +1,43 @@
+#devise {
+  height: 100%;
+  .menu {
+    height: 100%;
+    width: 100%;
+    @include mq($breakpoint: md){
+      width: 40%;
+      border: 2px solid;
+      border-top: none;
+      margin: 0 auto;
+    }
+    #edit_user #image-field label {
+      cursor: pointer;
+      i {
+        font-size: 20px;
+      }
+      #user_image {
+        display: none;
+      }
+    }
+    h2 {
+      text-align: center;
+      border-bottom: 1px solid;
+      padding: 10px 0;
+      margin: 0 10px;
+    }
+    form {
+      margin: 0 20px;
+      .actions input {
+        border: none;
+      }
+      .field {
+        margin-top: 8px;
+        input {
+          width: 80%;
+        }
+      }
+    }
+    p {
+      margin: 0 20px;
+    }
+  }
+}

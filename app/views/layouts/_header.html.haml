@@ -1,0 +1,25 @@
+.header
+  .header__title
+    = link_to root_path do
+      Kokoro Songs
+    %span
+      = link_to "https://www.spotify.com" do
+        supprted by Spotify
+  -if user_signed_in?
+    .header__info
+      = link_to musics_path do
+        %i.fas.fa-pencil-alt.new-post
+      = link_to user_path(current_user.id) do
+        .header__info__user
+          - if current_user.image.present?
+            .header__info__user__image
+              %image{src: current_user.image}
+          .header__info__user__name
+            = current_user.name
+      %ul.header__info__list
+        %li.header__info__list__config
+          = link_to edit_user_registration_path do
+            %i.fas.fa-ellipsis-v
+        %li.header__info__list__sign-out
+          = link_to destroy_user_session_path, method: "delete" do
+            %i.fas.fa-sign-out-alt

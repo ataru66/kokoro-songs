@@ -1,0 +1,26 @@
+
+.post
+  .post__top
+    = link_to user_path(id: post.user.id) do
+      %ul.user
+        - if post.user.image.present?
+          %li.image
+            %image{src: post.user.image}
+        %li.name
+          = post.user.name
+    %ul.config
+      %li.daytime
+        = post.created_at
+      %li.edit
+        - if post.user.id == current_user.id
+          = link_to edit_post_path(post) do
+            %i.fas.fa-angle-double-down
+  .post__contents
+    .post__contents__content
+      = post.content
+    = link_to new_post_path(song_id: post.song_id) do
+      %ul.post__contents__music
+        %li.artist
+          = post.artist
+        %li.song
+          = post.song

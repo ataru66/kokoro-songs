@@ -1,0 +1,79 @@
+.posts {
+  height: calc(100% - 194px);
+  .post {
+    padding: 18px 0;
+    margin: 0 10px;
+    border-bottom: 1px solid;
+    &__top {
+      display: flex;
+      justify-content: space-between;
+      .user {
+        display: flex;
+        line-height: 40px;
+        .image {
+          img {
+            @include user-image;
+          }
+        }
+        .name {
+          margin-left: 5px;
+          font-size: large;
+          font-family: 'rounded-mgenplus';
+          color: pink;
+        }
+      }
+      .config {
+        display: flex;
+        .daytime {
+          font-size: 10px;
+        }
+        .edit {
+          .edit-btn {
+            cursor: pointer;
+          }
+          i {
+            font-size: large;
+            margin-left: 10px;
+          }
+          &__menu {
+            text-align: center;
+            & li a:hover {
+              color: pink;
+            }
+            &__edit {
+              height: 20px;
+              font-size: 12px;
+            }
+            &__delete {
+              margin-top: 5px;
+              font-size: 12px;
+            }
+          }
+        }
+      }
+    }
+    &__content {
+      overflow: scroll;
+      text-overflow: fade;
+      margin-top: 5px;
+    }
+    &__contents {
+      display: flex;
+      justify-content: space-between;
+      overflow: scroll;
+      text-overflow: fade;
+      margin-top: 5px;
+      &__music {
+        text-align: right;
+        font-family: 'rounded-mgenplus';
+        font-size: 12px;
+      }
+    }
+  }
+}
+.delete {
+  text-align: center;
+  height: 40px;
+  line-height: 40px;
+  border-bottom: 1px solid;
+}

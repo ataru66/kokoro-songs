@@ -1,0 +1,51 @@
+class PostsController < ApplicationController
+
+  def index
+    @posts = Post.includes(:user).order(id: "DESC")
+  end
+
+  def new
+    @song = find_track(params[:song_id])
+    @artist = @song.artists[0]
+    @release_year = album_release_year(@song.album)
+    @posts = Post.where(artist_id: @artist.id).where(song_id: params[:song_id]).order(id: "DESC")
+    @post = Post.new
+  end
+
+  def create
+    post = Post.create(post_params)
+    redirect_to new_post_path(song_id: post.song_id)
+  end
+
+  def edit
+    @post = find_post(params[:id])
+    @song = find_track(@post.song_id)
+    @artist = find_artist(@post.artist_id)
+    @release_year = album_release_year(@song.album)
+  end
+
+  def update
+    post = find_post(params[:id])
+    post.update(post_params)
+    redirect_to new_post_path(song_id: post.song_id)
+  end
+
+  def destroy
+    post = find_post(params[:id])
+    post.destroy
+    redirect_to new_post_path(song_id: post.song_id)
+  end
+
+  private
+  def post_params
+    params.require(:post).permit(:content, :artist_id, :song_id, :artist, :song).merge(user_id: current_user.id)
+  end
+
+  def find_post(input)
+    Post.find(input)
+  end
+
+  def album_release_year(album)
+    release_year = album.release_date.gsub(/-.+/, "")
+  end
+end
