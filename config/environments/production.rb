@@ -93,4 +93,7 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   # config.action_mailer.default_url_options = { :host => 'appname.herokuapp.com' }
+
+  config.assets.compile = true
+  config.assets.initialize_on_precompile=false
 end
