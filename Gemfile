@@ -39,6 +39,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'pry-rails'
 end
 
 group :development do
@@ -68,5 +69,4 @@ gem 'font-awesome-sass', '~> 5.4.1'
 gem "jquery-rails"
 gem 'rspotify'
 gem 'dotenv-rails'
-gem 'pry-rails'
 gem 'rails_12factor', group: :production
