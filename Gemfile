@@ -69,3 +69,4 @@ gem "jquery-rails"
 gem 'rspotify'
 gem 'dotenv-rails'
 gem 'pry-rails'
+gem 'rails_12factor', group: :production

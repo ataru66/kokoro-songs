@@ -1,6 +1,6 @@
 $(function() {
   function buildHTMLsearchArtists(artist) {
-    var html =` <div class="contents">
+    var html =`<div class="contents">
                   <form action="/musics/select/artist" accept-charset="UTF-8" method="get">
                     <input name="utf8" type="hidden" value="✓">
                     <input value= ${artist.artist_id} type="hidden" name="artist_id" id="artist_id">
@@ -13,7 +13,7 @@ $(function() {
   }
 
   function buildHTMLsearchSongs(song, artist) {
-    var html =` <div class="contents">
+    var html =`<div class="contents">
                   <form action="/posts/new" accept-charset="UTF-8" method="get">
                     <input name="utf8" type="hidden" value="✓">
                     <input value=${song.song_id} type="hidden" name="song_id" id="song_id">
