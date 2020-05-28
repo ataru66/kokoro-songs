@@ -93,5 +93,5 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   # config.i18n.fallbacks = true
-  # config.action_mailer.default_url_options = { :host => 'appname.herokuapp.com' }
+  config.action_mailer.default_url_options = { :host => 'appname.herokuapp.com' }
 end
