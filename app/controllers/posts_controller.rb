@@ -19,31 +19,24 @@ class PostsController < ApplicationController
   end
 
   def edit
-    @post = find_post(params[:id])
     @song = find_track(@post.song_id)
     @artist = find_artist(@post.artist_id)
     @release_year = album_release_year(@song.album)
   end
 
   def update
-    post = find_post(params[:id])
-    post.update(post_params)
-    redirect_to new_post_path(song_id: post.song_id)
+    @post.update(post_params)
+    redirect_to new_post_path(song_id: @post.song_id)
   end
 
   def destroy
-    post = find_post(params[:id])
-    post.destroy
-    redirect_to new_post_path(song_id: post.song_id)
+    @post.destroy
+    redirect_to new_post_path(song_id: @post.song_id)
   end
 
   private
   def post_params
     params.require(:post).permit(:content, :artist_id, :song_id, :artist, :song).merge(user_id: current_user.id)
-  end
-
-  def find_post(input)
-    Post.find(input)
   end
 
   def album_release_year(album)
