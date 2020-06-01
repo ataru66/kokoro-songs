@@ -1,24 +1,26 @@
-# README
+Kokoro Songs
+====
+音楽の感想を共有できるアプリケーション
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Description
+アーティスト、楽曲を検索して楽曲に対するレビューを投稿することができます。
+普段耳にできないマイナーな楽曲の感想も誰かと共有することができます。
 
-Things you may want to cover:
+## Usage
+* ユーザー登録を行う。ユーザーアイコンは任意で設定可能です。
+* 全コメント一覧が表示されます。気になるコメントからその楽曲のページへ飛ぶことができます。
+* ヘッダー部えんぴつのアイコンから新規投稿へ。アーティストから楽曲を検索、もしくは直接楽曲を検索することができます。
+* 投稿画面で再生ボタンを押すことで３０秒間の試聴ができます。
 
-* Ruby version
+## Versioning
+* Ruby (2.5.1)
+* Ruby on Rails (5.2.4.2)
+* MySQL2 (0.5.3)
+* jQuery (4.4.0)
+* Haml (5.1.2)
+* SASS (3.7.4)
+* RSpotify (2.4.0)
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Licence
+[Spotify](https://www.spotify.com/)
+[Spotify for Developers](https://developer.spotify.com/)
