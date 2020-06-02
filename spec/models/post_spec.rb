@@ -70,6 +70,10 @@ RSpec.describe Post, type: :model do
   end
 
   describe 'NotNull制約' do
+    before do
+      @user = create(:user)
+      @post = build(:post)
+    end
 
     context '保存できない場合' do
 
