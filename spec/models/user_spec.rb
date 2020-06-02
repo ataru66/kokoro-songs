@@ -17,6 +17,17 @@ RSpec.describe User, type: :model do
         end
       end
       context '保存できない場合' do
+        it 'nameカラムが空だと保存できないこと' do
+          @user.name = ""
+          @user.valid?
+          expect(@user.errors[:name]).to include("can't be blank")
+        end
+
+        it 'emailカラムが空だと保存できないこと' do
+          @user.email = ""
+          @user.valid?
+          expect(@user.errors[:email]).to include("can't be blank")
+        end
       end
     end
     describe 'uniqueness: true' do
