@@ -7,6 +7,14 @@ RSpec.describe User, type: :model do
     end
     describe 'presence: true' do
       context '保存できる場合' do
+        it 'nameカラムにデータがあると保存できること' do
+          @user.valid?
+          expect(@user).to be_valid
+        end
+        it 'emailカラムにデータがあると保存できること' do
+          @user.valid?
+          expect(@user).to be_valid
+        end
       end
       context '保存できない場合' do
       end
