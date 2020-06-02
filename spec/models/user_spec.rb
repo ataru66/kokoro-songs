@@ -32,8 +32,32 @@ RSpec.describe User, type: :model do
     end
     describe 'uniqueness: true' do
       context '保存できる場合' do
+        it 'nameカラムが一意的だと保存できること' do
+          create(:user)
+          @user.valid?
+          expect(@user).to be_valid
+        end
+
+        it 'emailカラムが一意的だと保存できること' do
+          create(:user)
+          @user.valid?
+          expect(@user).to be_valid
+        end
       end
       context '保存できない場合' do
+        it 'nameカラムが一意的じゃないと保存できないこと' do
+          first_user = create(:user)
+          @user.name = first_user.name
+          @user.valid?
+          expect(@user.errors[:name]).to include("has already been taken")
+        end
+
+        it 'emailカラムが一意的じゃないと保存できないこと' do
+          first_user = create(:user)
+          @user.email = first_user.email
+          @user.valid?
+          expect(@user.errors[:email]).to include("has already been taken")
+        end
       end
     end
   end
