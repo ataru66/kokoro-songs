@@ -69,4 +69,14 @@ RSpec.describe Post, type: :model do
     end
   end
 
+  describe 'NotNull制約' do
+
+    context '保存できない場合' do
+
+    end
+
+    context '保存できる場合' do
+
+    end
+  end
 end
