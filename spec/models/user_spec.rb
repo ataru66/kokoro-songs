@@ -2,6 +2,9 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
   describe 'validates' do
+    before do
+      @user = build(:user)
+    end
     describe 'presence: true' do
       context '保存できる場合' do
       end
