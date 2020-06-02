@@ -110,6 +110,30 @@ RSpec.describe Post, type: :model do
 
     context '保存できる場合' do
 
+      it 'contentカラムにデータがあると保存できること' do
+        @post.valid?
+        expect(@post).to be_valid
+      end
+
+      it 'artist_idカラムにデータがあると保存できること' do
+        @post.valid?
+        expect(@post).to be_valid
+      end
+
+      it 'song_idカラムにデータがあると保存できること' do
+        @post.valid?
+        expect(@post).to be_valid
+      end
+
+      it 'artistカラムにデータがあると保存できること' do
+        @post.valid?
+        expect(@post).to be_valid
+      end
+
+      it 'songカラムにデータがあると保存できること' do
+        @post.valid?
+        expect(@post).to be_valid
+      end
     end
   end
 end
