@@ -1,4 +1,6 @@
 require 'rails_helper'
+require 'rspotify'
+RSpotify.authenticate(ENV['SPOTIFY_CLIENT_ID'], ENV['SPOTIFY_SECRET_ID'])
 
 describe PostsController do
   describe 'GET #index' do
