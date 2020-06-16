@@ -11,7 +11,7 @@ class PostsController < ApplicationController
     @song = find_track(params[:song_id])
     @artist = @song.artists[0]
     @release_year = album_release_year(@song.album)
-    @posts = Post.where(artist_id: @artist.id).where(song_id: params[:song_id]).order(id: "DESC")
+    @posts = Post.where(artist_id: @artist.id).where(song_id: params[:song_id]).order(updated_at: "DESC")
     @post = Post.new
   end
 
