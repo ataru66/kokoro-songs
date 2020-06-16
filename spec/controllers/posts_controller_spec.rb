@@ -3,6 +3,14 @@ require 'rspotify'
 RSpotify.authenticate(ENV['SPOTIFY_CLIENT_ID'], ENV['SPOTIFY_SECRET_ID'])
 
 describe PostsController do
+  def sort_DESC(posts)
+    posts.sort{|a, b| b.updated_at <=> a.updated_at}
+  end
+
+  def select_posts(posts)
+    posts.select{|post| post.artist_id == @artist&.id && post.song_id == @song&.id}
+  end
+
   describe 'GET #index' do
     it '@postsの中身が期待通りであること' do
       posts = create_list(:post, 5)
