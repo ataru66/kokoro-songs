@@ -68,5 +68,11 @@
         }
       }
     }
+    .login {
+      @include header-item();
+    }
+    .new-registration {
+      @include header-item();
+    }
   }
 }
