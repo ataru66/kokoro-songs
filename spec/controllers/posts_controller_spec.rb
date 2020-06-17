@@ -52,8 +52,14 @@ describe PostsController do
 
   describe 'POST #create' do
     context 'ログインしている場合' do
+      it 'postをDBに保存できること' do
+      end
+      it 'posts/new.html.hamlにリダイレクトすること' do
+      end
     end
     context 'ログインしていない場合' do
+      it 'devise/sessions/new.html.hamlへリダイレクトすること' do
+      end
     end
   end
 end
