@@ -51,6 +51,9 @@ describe PostsController do
   end
 
   describe 'POST #create' do
+    def create_action
+      post :create, params: @params
+    end
     context 'ログインしている場合' do
       it 'postをDBに保存できること' do
       end
