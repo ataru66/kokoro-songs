@@ -55,6 +55,18 @@ describe PostsController do
       post :create, params: @params
     end
     context 'ログインしている場合' do
+      before(:each) do
+        login_user
+        @params = {
+          post: {
+            content: "hello world",
+            song_id: "58dxGXavrcagRqA58fNB0Z",
+            artist_id: "5Vo1hnCRmCM6M4thZCInCj",
+            song: "Pretender",
+            artist: "Official HIGE DANdism"
+          }
+        }
+      end
       it 'postをDBに保存できること' do
       end
       it 'posts/new.html.hamlにリダイレクトすること' do
