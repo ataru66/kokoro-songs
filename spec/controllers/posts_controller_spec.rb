@@ -49,4 +49,7 @@ describe PostsController do
       expect(response).to render_template :new
     end
   end
+
+  describe 'POST #create' do
+  end
 end
