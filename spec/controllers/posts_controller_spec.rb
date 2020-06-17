@@ -68,12 +68,17 @@ describe PostsController do
         }
       end
       it 'postをDBに保存できること' do
+        expect{ create_action }.to change{ Post.count }.by(1)
       end
       it 'posts/new.html.hamlにリダイレクトすること' do
+        create_action
+        expect(response).to redirect_to("http://test.host/posts/new?song_id=58dxGXavrcagRqA58fNB0Z")
       end
     end
     context 'ログインしていない場合' do
       it 'devise/sessions/new.html.hamlへリダイレクトすること' do
+        create_action
+        expect(response).to redirect_to(new_user_session_path)
       end
     end
   end
