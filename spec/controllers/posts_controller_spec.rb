@@ -82,4 +82,7 @@ describe PostsController do
       end
     end
   end
+
+  describe 'GET #edit' do
+  end
 end
