@@ -85,6 +85,15 @@ describe PostsController do
 
   describe 'GET #edit' do
     context 'ログインしている場合' do
+      before do
+        login_user
+        post = create(:post, user_id: @login_user.id)
+        params = { id: post.id }
+        @song = RSpotify::Track.find(post.song_id)
+        @artist = @song.artists[0]
+        @release_year = @song.album.release_date.gsub(/-.+/, "")
+        get :edit, params: params
+      end
       it '@songの値が期待通りであること' do
       end
       it '@artistの値が期待通りであること' do
