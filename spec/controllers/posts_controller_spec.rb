@@ -51,8 +51,8 @@ describe PostsController do
   end
 
   describe 'POST #create' do
-    def create_action
-      post :create, params: @params
+    def create_action(params)
+      post :create, params: params
     end
     context 'ログインしている場合' do
       before(:each) do
@@ -68,16 +68,16 @@ describe PostsController do
         }
       end
       it 'postをDBに保存できること' do
-        expect{ create_action }.to change{ Post.count }.by(1)
+        expect{ create_action(@params) }.to change{ Post.count }.by(1)
       end
       it 'posts/new.html.hamlにリダイレクトすること' do
-        create_action
+        create_action(@params)
         expect(response).to redirect_to("http://test.host/posts/new?song_id=58dxGXavrcagRqA58fNB0Z")
       end
     end
     context 'ログインしていない場合' do
       it 'devise/sessions/new.html.hamlへリダイレクトすること' do
-        create_action
+        create_action(@params)
         expect(response).to redirect_to(new_user_session_path)
       end
     end
