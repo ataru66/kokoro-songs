@@ -84,5 +84,19 @@ describe PostsController do
   end
 
   describe 'GET #edit' do
+    context 'ログインしている場合' do
+      it '@songの値が期待通りであること' do
+      end
+      it '@artistの値が期待通りであること' do
+      end
+      it '@release_yearの値が期待通りであること' do
+      end
+      it 'posts/edit.html.hamlに遷移すること' do
+      end
+    end
+    context 'ログインしていない場合' do
+      it 'devise/sessions/new.html.hamlへリダイレクトすること' do
+      end
+    end
   end
 end
