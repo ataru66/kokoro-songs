@@ -25,12 +25,12 @@ describe PostsController do
 
   describe 'GET #new' do
     before do
-      @params = { song_id: "58dxGXavrcagRqA58fNB0Z", artist_id: "5Vo1hnCRmCM6M4thZCInCj" }
-      @song = RSpotify::Track.find(@params[:song_id])
+      params = { song_id: "58dxGXavrcagRqA58fNB0Z", artist_id: "5Vo1hnCRmCM6M4thZCInCj" }
+      @song = RSpotify::Track.find(params[:song_id])
       @artist = @song.artists[0]
       @release_year = @song.album.release_date.gsub(/-.+/, "")
       @posts = create_list(:post, 3)
-      get :new, params: @params
+      get :new, params: params
     end
     it '@songの値が期待通りであること' do
       expect(assigns(:song)).to have_attributes(id: @song.id)
