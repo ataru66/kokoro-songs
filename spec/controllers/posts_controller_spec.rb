@@ -12,7 +12,7 @@ describe PostsController do
   end
 
   describe 'GET #index' do
-    it '@postsの中身が期待通りであること' do
+    it '@postsの値が期待通りであること' do
       posts = create_list(:post, 5)
       get :index
       expect(assigns(:posts)).to match(sort_DESC(posts))
@@ -32,13 +32,13 @@ describe PostsController do
       @posts = create_list(:post, 3)
       get :new, params: @params
     end
-    it '@songの中身が期待通りであること' do
+    it '@songの値が期待通りであること' do
       expect(assigns(:song)).to have_attributes(id: @song.id)
     end
-    it '@artistの中身が期待通りであること' do
+    it '@artistの値が期待通りであること' do
       expect(assigns(:artist)).to have_attributes(id: @artist.id)
     end
-    it '@release_yearの中身が期待通りであること' do
+    it '@release_yearの値が期待通りであること' do
       expect(assigns(:release_year)).to match(@release_year)
     end
     it '@postsの値が期待通りであること' do
