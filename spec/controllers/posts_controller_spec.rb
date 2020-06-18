@@ -7,8 +7,8 @@ describe PostsController do
     posts.sort{|a, b| b.updated_at <=> a.updated_at}
   end
 
-  def select_posts(posts)
-    posts.select{|post| post.artist_id == @artist&.id && post.song_id == @song&.id}
+  def select_posts(posts, artist, song)
+    posts.select{|post| post.artist_id == artist&.id && post.song_id == song&.id}
   end
 
   describe 'GET #index' do
@@ -41,8 +41,8 @@ describe PostsController do
     it '@release_yearの中身が期待通りであること' do
       expect(assigns(:release_year)).to match(@release_year)
     end
-    it '@postsの中身が期待通りであること' do
-      @posts = select_posts(@posts)
+    it '@postsの値が期待通りであること' do
+      @posts = select_posts(@posts, @artist, @song)
       expect(assigns(:posts)).to match(sort_DESC(@posts))
     end
     it 'posts/new.html.hamlに遷移すること' do
