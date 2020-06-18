@@ -95,16 +95,24 @@ describe PostsController do
         get :edit, params: params
       end
       it '@songの値が期待通りであること' do
+        expect(assigns(:song)).to have_attributes(id: @song.id)
       end
       it '@artistの値が期待通りであること' do
+        expect(assigns(:artist)).to have_attributes(id: @artist.id)
       end
       it '@release_yearの値が期待通りであること' do
+        expect(assigns(:release_year)).to match(@release_year)
       end
       it 'posts/edit.html.hamlに遷移すること' do
+        expect(response).to render_template :edit
       end
     end
     context 'ログインしていない場合' do
       it 'devise/sessions/new.html.hamlへリダイレクトすること' do
+        post = create(:post)
+        params = {id: post.id}
+        get :edit, params: params
+        expect(response).to redirect_to(new_user_session_path)
       end
     end
   end
