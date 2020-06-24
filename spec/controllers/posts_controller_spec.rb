@@ -155,6 +155,9 @@ describe PostsController do
   end
 
   describe 'DELETE #destroy' do
+    def destroy_action(params)
+      delete :destroy, params: params
+    end
     context 'ログインしている場合' do
       it '@postの値が期待通りであること' do
       end
