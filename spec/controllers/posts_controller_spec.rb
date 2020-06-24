@@ -153,4 +153,19 @@ describe PostsController do
       end
     end
   end
+
+  describe 'DELETE #destroy' do
+    context 'ログインしている場合' do
+      it '@postの値が期待通りであること' do
+      end
+      it 'データを削除できること' do
+      end
+      it 'posts/new.html.hamlに遷移すること' do
+      end
+    end
+    context 'ログインしていない場合' do
+      it 'devise/sessions/new.html.hamlへリダイレクトすること' do
+      end
+    end
+  end
 end
