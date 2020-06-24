@@ -159,6 +159,11 @@ describe PostsController do
       delete :destroy, params: params
     end
     context 'ログインしている場合' do
+      before(:each) do
+        login_user
+        @post = create(:post, user_id: @login_user.id)
+        @params = { id: @post.id }
+      end
       it '@postの値が期待通りであること' do
       end
       it 'データを削除できること' do
