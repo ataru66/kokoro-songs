@@ -146,6 +146,10 @@ describe PostsController do
     end
     context 'ログインしていない場合' do
       it 'devise/sessions/new.html.hamlへリダイレクトすること' do
+        post = create(:post)
+        params = {id: post.id}
+        patch :update, params: params
+        expect(response).to redirect_to(new_user_session_path)
       end
     end
   end
