@@ -165,10 +165,15 @@ describe PostsController do
         @params = { id: @post.id }
       end
       it '@postの値が期待通りであること' do
+        destroy_action(@params)
+        expect(assigns(:post)).to match(@post)
       end
       it 'データを削除できること' do
+        expect{ destroy_action(@params) }.to change{ Post.count }.by(-1)
       end
       it 'posts/new.html.hamlに遷移すること' do
+        destroy_action(@params)
+        expect(response).to redirect_to(new_post_path(song_id: @post.song_id))
       end
     end
     context 'ログインしていない場合' do
