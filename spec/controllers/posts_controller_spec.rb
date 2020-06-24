@@ -116,4 +116,20 @@ describe PostsController do
       end
     end
   end
+
+  describe 'PATCH #update' do
+    context 'ログインしている場合' do
+      end
+      it '@postの値が期待通りであること' do
+      end
+      it 'データの更新ができること' do
+      end
+      it 'posts/new.html.hamlに遷移すること' do
+      end
+    end
+    context 'ログインしていない場合' do
+      it 'devise/sessions/new.html.hamlへリダイレクトすること' do
+      end
+    end
+  end
 end
