@@ -119,6 +119,20 @@ describe PostsController do
 
   describe 'PATCH #update' do
     context 'ログインしている場合' do
+      before(:each) do
+        login_user
+        @post = create(:post, user_id: @login_user.id)
+        params = {
+          id: @post.id,
+          post: {
+            content: "hello world",
+            song_id: "58dxGXavrcagRqA58fNB0Z",
+            artist_id: "5Vo1hnCRmCM6M4thZCInCj",
+            song: "Pretender",
+            artist: "Official HIGE DANdism"
+          }
+        }
+        patch :update, params: params
       end
       it '@postの値が期待通りであること' do
       end
