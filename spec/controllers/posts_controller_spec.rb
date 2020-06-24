@@ -135,10 +135,13 @@ describe PostsController do
         patch :update, params: params
       end
       it '@postの値が期待通りであること' do
+        expect(assigns(:post)).to match(@post)
       end
       it 'データの更新ができること' do
+        expect(assigns(:post).content).to eq("hello world")
       end
       it 'posts/new.html.hamlに遷移すること' do
+        expect(response).to redirect_to(new_post_path(song_id: @post.song_id))
       end
     end
     context 'ログインしていない場合' do
