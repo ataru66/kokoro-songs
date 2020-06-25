@@ -1,0 +1,21 @@
+.search
+  .search__box
+    .search__box__form
+      = form_with url: artists_search_path, local: true, method: :get, html: { id: "search-form" } do |f|
+        = f.text_field :search, class: "text-field", placeholder: "search artists", autofocus: true
+        %button{type: "submit", class: "search-btn"}
+          %i.fas.fa-search.search-icon
+    .search-songs
+      = link_to musics_search_only_songs_path do
+        曲からさがす
+        %i.fas.fa-search
+    .result-text search result
+    .result-text.under ↓please choose artist↓
+    .search__box__result
+      - if @artists.present?
+        - @artists.each do |artist|
+          .contents
+            = form_with url:  artist_select_path, local: true, method: :get do |f|
+              = f.hidden_field :artist_id, value: artist.id
+              %button{type: "submit", class: "select-btn"}
+                = artist.name
