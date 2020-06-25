@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_26_051711) do
+ActiveRecord::Schema.define(version: 2020_06_25_035951) do
+
+  create_table "albums", id: :string, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "image"
+    t.string "release_date"
+  end
+
+  create_table "artists", id: :string, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "image"
+  end
 
   create_table "musics", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -22,11 +33,13 @@ ActiveRecord::Schema.define(version: 2020_05_26_051711) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "artist_id", null: false
-    t.string "song_id", null: false
-    t.string "artist"
-    t.string "song"
     t.index ["user_id"], name: "index_posts_on_user_id"
+  end
+
+  create_table "tracks", id: :string, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "album_id", null: false
+    t.index ["album_id"], name: "index_tracks_on_album_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -44,4 +57,5 @@ ActiveRecord::Schema.define(version: 2020_05_26_051711) do
   end
 
   add_foreign_key "posts", "users"
+  add_foreign_key "tracks", "albums"
 end
