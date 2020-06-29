@@ -1,14 +1,8 @@
 $(function() {
   function buildHTMLsearchArtists(artist) {
     var html =`<div class="contents">
-                  <form action="/albums" accept-charset="UTF-8" method="get">
-                    <input type="hidden" name="utf8" value="✓">
-                    <input type="hidden" name="artist_id" value= ${artist.id} id="artist_id">
-                    <button type="submit" class="select-btn">
-                      ${artist.name}
-                    </button>
-                  </form>
-                </div>`
+                <a class="select-btn" href="/artists/${artist.id}">${artist.name}</a>
+              </div>`
     return html
   }
 
