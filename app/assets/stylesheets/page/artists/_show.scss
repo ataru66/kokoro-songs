@@ -1,0 +1,78 @@
+.artist-box {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid;
+  .artist-info {
+    height: 150px;
+    width: 70%;
+    text-align: right;
+    padding: 10px;
+    &__list {
+      display: flex;
+      justify-content: space-between;
+      &--spotify-url {
+        font-size: 40px;
+        .fa-spotify:hover {
+          color: pink;
+        }
+      }
+      &--genres {
+        font-size: small;
+        a:hover {
+          color: pink;
+        }
+      }
+    }
+    &--name {
+      font-size: large;
+    }
+  }
+}
+.choose-album-type {
+  text-align: center;
+  padding: 10px;
+  &__list {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+    li {
+      display: block;
+      width: 30%;
+      padding: 5px 10px;
+      cursor: pointer;
+      &:hover {
+        color: pink;
+      }
+    }
+    #active-album-type {
+      border: 2px solid;
+      border-radius: 15px;
+    }
+  }
+}
+.artist-albums {
+  padding: 10px 0;
+  text-align: center;
+  .select-btn {
+    width: 95%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 5px;
+    border: none;
+    font-size: 18px;
+    .album-name:hover {
+      cursor: pointer;
+      color: pink;
+    }
+  }
+  .album-info {
+    text-align: right;
+    &--release-date {
+      margin-top: 10px;
+      font-size: 12px;
+    }
+  }
+}
