@@ -1,48 +1,46 @@
-    .musics {
-      border-bottom: 2px solid;
-      .music {
-        height: 120px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 10px;
-        font-family: 'rounded-mgenplus';
-        &__info {
-          font-size: small;
-          text-align: center;
-          &__release-year {
-            font-family: monospace;
-            text-align: end;
-          }
-          &__song {
-            font-size: large;
-            color: pink;
-          }
-        }
+.musics {
+  border-bottom: 2px solid;
+  .music {
+    height: 120px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    font-family: 'rounded-mgenplus';
+    &__info {
+      font-size: small;
+      text-align: center;
+      &__release-year {
+        font-family: monospace;
+        text-align: end;
       }
-      #player {
-        font-size: 30px;
-        cursor: pointer;
+      &__song {
+        font-size: large;
+        color: pink;
       }
     }
-    .form-box form{
-      display: flex;
-      padding: 10px;
-      align-items: center;
-      border-bottom: 2px solid;
-      .text-field {
-        height: 50px;
-        width: 90%;
-      }
-      .send-btn {
-        border: 0 solid;
-        cursor: pointer;
-        i {
-          display: inline-block;
-          margin: 10px;
-          font-size: 25px;
-        }
-      }
+  }
+  #player {
+    font-size: 30px;
+    cursor: pointer;
+  }
+}
+.form-box form{
+  display: flex;
+  padding: 10px;
+  align-items: center;
+  border-bottom: 2px solid;
+  .text-field {
+    height: 50px;
+    width: 90%;
+  }
+  .send-btn {
+    border: 0 solid;
+    cursor: pointer;
+    i {
+      display: inline-block;
+      margin: 10px;
+      font-size: 25px;
     }
   }
 }
