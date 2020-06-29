@@ -10,4 +10,11 @@ class ArtistsController < ApplicationController
     end
   end
 
+  def show
+    @artist = RSpotify::Artist.find(params[:id])
+    @albums = @artist.albums(limit: 50, country: 'JP', album_type: 'album')
+    @singles = @artist.albums(limit: 50, country: 'JP', album_type: 'single')
+    @compilations = @artist.albums(limit: 50, country: 'JP', album_type: 'compilation')
+  end
+
 end
