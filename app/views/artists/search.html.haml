@@ -15,7 +15,4 @@
       - if @artists.present?
         - @artists.each do |artist|
           .contents
-            = form_with url:  artist_select_path, local: true, method: :get do |f|
-              = f.hidden_field :artist_id, value: artist.id
-              %button{type: "submit", class: "select-btn"}
-                = artist.name
+            = link_to artist.name, artist_path(id: artist.id), class: "select-btn"
