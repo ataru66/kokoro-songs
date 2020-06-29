@@ -1,0 +1,63 @@
+.main-wrapper
+  .artist-box
+    .artist-image
+      = link_to "#{@artist.images[0]["url"]}" do
+        %image{src: "#{@artist.images[0]["url"]}", width: "150px", height: "150px"}
+    .artist-info
+      .artist-info__list
+        .artist-info__list--spotify-url
+          = link_to @artist.external_urls["spotify"] do
+            %i.fab.fa-spotify
+        .artist-info__list--genres
+          = link_to @artist.genres[0].upcase, "#"
+      .artist-info--name
+        = @artist.name
+  .choose-album-type
+    ↓choose album type↓
+    %ul.choose-album-type__list
+      %li.type-btn#active-album-type{data: {type: 'album'}}
+        Album
+      %li.type-btn{data: {type: 'single'}}
+        Single
+      %li.type-btn{data: {type: 'compilation'}}
+        Compilation
+  .artist-albums
+    .albums#active-albums
+      - @albums.each do |album|
+        .content
+          = form_with url: album_path(id: album.id), local: true, method: :get do |f|
+            = f.hidden_field :artist_id, value: @artist.id
+            %button{type: "submit", class: "select-btn"}
+              .album-image
+                %image{src: "#{album.images[0]["url"]}", width: "100px", height: "100px"}
+              .album-info
+                .album-info--name
+                  = album.name
+                .album-info--release-date
+                  = album.release_date.gsub(/-/, "/")
+    .singles
+      - @singles.each do |single|
+        .content
+          = form_with url: album_path(id: single.id), local: true, method: :get do |f|
+            = f.hidden_field :artist_id, value: @artist.id
+            %button{type: "submit", class: "select-btn"}
+              .album-image
+                %image{src: "#{single.images[0]["url"]}", width: "100px", height: "100px"}
+              .album-info
+                .album-info--name
+                  = single.name
+                .album-info--release-date
+                  = single.release_date.gsub(/-/, "/")
+    .compilations
+      - @compilations.each do |compilation|
+        .content
+          = form_with url: album_path(id: compilation.id), local: true, method: :get do |f|
+            = f.hidden_field :artist_id, value: @artist.id
+            %button{type: "submit", class: "select-btn"}
+              .album-image
+                %image{src: "#{compilatiom.images[0]["url"]}", width: "100px", height: "100px"}
+              .album-info
+                .album-info--name
+                  = compilation.name
+                .album-info--release-date
+                  = compilation.release_date.gsub(/-/, "/")
