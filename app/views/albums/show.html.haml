@@ -1,0 +1,36 @@
+.main-wrapper
+  .album-box
+    .album-image
+      = link_to "#{@album.images[0]["url"]}" do
+        %image{src: "#{@album.images[0]["url"]}", width: "150px", height: "150px"}
+    .album-info
+      .album-info__artist
+        .album-info__artist--spotify-url
+          = link_to @artist.external_urls["spotify"] do
+            %i.fab.fa-spotify
+        .album-info__artist--name
+          = link_to @artist.name, artist_path(id: @artist.id)
+      .album-info--name
+        = @album.name
+      .album-info--release-date
+        = @album.release_date.gsub(/-/, "/")
+  .album-tracks
+    - @tracks.each_with_index do |track, i|
+      .content-box
+        .content-left
+          #player
+            %i.fas.fa-play{id: "track-#{i}", value: track.preview_url}
+        .content-right
+          = form_with url: new_post_path, local: true, method: :get do |f|
+            = f.hidden_field :artist_id, value: @artist.id
+            = f.hidden_field :track_id, value: track.id
+            %button{type: "submit", class: "select-btn"}
+              .track-info
+                .track-info__left
+                  .track-info__left--track-number
+                    = track.track_number
+                  .track-info__left--name
+                    = track.name
+                .track-info__right
+                  .track-info__right--length
+                    = convert_mins(track.duration_ms)
