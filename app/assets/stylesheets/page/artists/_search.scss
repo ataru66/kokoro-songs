@@ -57,10 +57,8 @@
         line-height: 40px;
         border: none;
         text-align: center;
-        form .select-btn {
+        .select-btn {
           font-size: large;
-          border-style: none;
-          cursor: pointer;
           &:hover {
             color: pink;
           }
