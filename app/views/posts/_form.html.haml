@@ -4,8 +4,7 @@
       = link_to "#{artist.images[0]["url"]}" do
         %image{src: "#{artist.images[0]["url"]}", width: "100px", height: "100px"}
     #player
-      %input{class: "song_preview_url", type: "hidden", name: "song_preview_url", value: song.preview_url}
-      %i.fas.fa-play
+      %i.fas.fa-play{id: "track-#{i}", value: track.preview_url}
     %ul.music__info
       %li.music__info__artist
         = artist.name
