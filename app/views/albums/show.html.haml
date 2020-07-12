@@ -18,8 +18,9 @@
     - @tracks.each_with_index do |track, i|
       .content-box
         .content-left
-          #player
-            %i.fas.fa-play{id: "track-#{i}", value: track.preview_url}
+          - if track.preview_url.present?
+            #player
+              %i.fas.fa-play{id: "track-#{i}", value: track.preview_url}
         .content-right
           = form_with url: new_post_path, local: true, method: :get do |f|
             = f.hidden_field :artist_id, value: @artist.id
