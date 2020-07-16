@@ -8,10 +8,9 @@ class PostsController < ApplicationController
   end
 
   def new
-    @song = find_track(params[:song_id])
-    @artist = @song.artists[0]
-    @release_year = album_release_year(@song.album)
-    @posts = Post.where(artist_id: @artist.id).where(song_id: params[:song_id]).order(updated_at: "DESC")
+    @track = RSpotify::Track.find(params[:track_id])
+    @artist = RSpotify::Artist.find(params[:artist_id])
+    @posts = Track.find_by(id: params[:track_id])&.posts&.order(updated_at: "DESC")
     @post = Post.new
   end
 
