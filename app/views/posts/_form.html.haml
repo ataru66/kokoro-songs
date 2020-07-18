@@ -1,8 +1,8 @@
 .musics
   .music
     .music__artist-image
-      = link_to "#{artist.images[0]["url"]}" do
-        %image{src: "#{artist.images[0]["url"]}", width: "100px", height: "100px"}
+      = link_to "#{track.album.images[0]["url"]}" do
+        %image{src: "#{track.album.images[0]["url"]}", width: "100px", height: "100px"}
     #player
       %i.fas.fa-play{id: "track-0", value: track.preview_url}
     %ul.music__info
