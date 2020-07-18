@@ -16,10 +16,8 @@
         = track.album.release_date.gsub(/-/, "/")
 .form-box
   = form_with model: post, local: true do |f|
-    = f.hidden_field :song_id, value: song.id
-    = f.hidden_field :artist_id, value: artist.id
-    = f.hidden_field :song, value: song.name
-    = f.hidden_field :artist, value: artist.name
+    = f.hidden_field :album_id, value: track.album.id
+    = f.hidden_field :track_id, value: track.id
     = f.text_area :content, class: "text-field"
     %button{type: "submit", class: "send-btn"}
       %i.far.fa-paper-plane
