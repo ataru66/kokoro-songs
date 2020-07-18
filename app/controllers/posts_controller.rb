@@ -82,6 +82,10 @@ class PostsController < ApplicationController
     end
   end
 
+  def create_artists_posts(artists, post)
+    artists.each do |artist|
+      ArtistsPost.create(artist_id: artist.id, post_id: post.id)
+    end
   end
 
   def album_release_year(album)
