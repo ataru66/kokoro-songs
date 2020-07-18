@@ -62,6 +62,8 @@ class PostsController < ApplicationController
   end
 
   def create_artist(artist)
+    artist = RSpotify::Artist.find(artist.id)
+    Artist.create(id: artist.id, name: artist.name, image: artist.images[0]["url"])
   end
 
   def create_album(album)
