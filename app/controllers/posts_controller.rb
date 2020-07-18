@@ -75,6 +75,13 @@ class PostsController < ApplicationController
   end
 
   def create_track(track)
+    Track.create(id: track.id, name: track.name, album_id: track.album.id)
+    artists = track.artists
+    artists.each do |artist|
+      ArtistsTrack.create(artist_id: artist.id, track_id: track.id)
+    end
+  end
+
   end
 
   def album_release_year(album)
