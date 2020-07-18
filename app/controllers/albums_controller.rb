@@ -5,4 +5,5 @@ class AlbumsController < ApplicationController
     @album = RSpotify::Album.find(params[:id])
     @tracks = @album.tracks
   end
+
 end
