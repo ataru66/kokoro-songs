@@ -15,8 +15,29 @@ class PostsController < ApplicationController
   end
 
   def create
+    track = RSpotify::Track.find(params[:post][:track_id])
+
+    # DBに楽曲情報がない場合SpotifyDBから作成する/////
+    artists = track.artists
+    artists.each do |artist|
+      if Artist.find_by(id: artist.id) === nil
+        create_artist(artist)
+      end
+    end
+
+    album = track.album
+    if Album.find_by(id: album.id) === nil
+      create_album(album)
+    end
+
+    if Track.find_by(id: track.id) === nil
+      create_track(track)
+    end
+    # ///////////////////////////////
+
     post = Post.create(post_params)
-    redirect_to new_post_path(song_id: post.song_id)
+    create_artists_posts(artists, post)
+    redirect_to new_post_path(track_id: post.track_id, artist_id: artists[0].id)
   end
 
   def edit
