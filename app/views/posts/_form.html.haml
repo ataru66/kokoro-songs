@@ -13,7 +13,7 @@
       %li.music__info__track
         = track.name
       %li.music__info__release-year
-        = release_year
+        = track.album.release_date.gsub(/-/, "/")
 .form-box
   = form_with model: post, local: true do |f|
     = f.hidden_field :song_id, value: song.id
