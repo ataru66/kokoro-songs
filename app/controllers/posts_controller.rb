@@ -38,6 +38,13 @@ class PostsController < ApplicationController
   private
   def post_params
     params.require(:post).permit(:content, :artist_id, :song_id, :artist, :song).merge(user_id: current_user.id)
+  def create_artist(artist)
+  end
+
+  def create_album(album)
+  end
+
+  def create_track(track)
   end
 
   def album_release_year(album)
