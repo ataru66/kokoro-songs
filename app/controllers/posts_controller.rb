@@ -67,7 +67,7 @@ class PostsController < ApplicationController
   end
 
   def create_album(album)
-    Album.create(id: album.id, name: album.id, image: album.images[0]["url"], release_date: album.release_date)
+    Album.create(id: album.id, name: album.name, image: album.images[0]["url"], release_date: album.release_date)
     artists = album.artists
     artists.each do |artist|
       ArtistsAlbum.create(artist_id: artist.id, album_id: album.id)
