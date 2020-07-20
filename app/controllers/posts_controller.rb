@@ -51,8 +51,9 @@ class PostsController < ApplicationController
   end
 
   def destroy
+    artist_id = @post.artists[0].id
     @post.destroy
-    redirect_to new_post_path(song_id: @post.song_id)
+    redirect_to new_post_path(track_id: @post.track_id, artist_id: artist_id)
   end
 
   private
