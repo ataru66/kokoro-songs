@@ -88,10 +88,6 @@ class PostsController < ApplicationController
     end
   end
 
-  def album_release_year(album)
-    release_year = album.release_date.gsub(/-.+/, "")
-  end
-  
   def set_post
     @post = Post.find(params[:id])
   end
