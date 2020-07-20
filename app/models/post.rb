@@ -5,8 +5,8 @@ class Post < ApplicationRecord
   validates :track_id, presence: true
 
   belongs_to :user
+  has_many :artists_posts, dependent: :destroy
   has_many :artists, through: :artists_posts
-  has_many :artists_posts
   belongs_to :album
   belongs_to :track
 end
