@@ -41,9 +41,8 @@ class PostsController < ApplicationController
   end
 
   def edit
-    @song = find_track(@post.song_id)
-    @artist = find_artist(@post.artist_id)
-    @release_year = album_release_year(@song.album)
+    @track = RSpotify::Track.find(@post.track_id)
+    @artist = RSpotify::Artist.find(@post.artists[0].id)
   end
 
   def update
