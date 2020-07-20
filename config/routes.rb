@@ -3,9 +3,21 @@ Rails.application.routes.draw do
   devise_for :users
   resources :posts, except: :index
   resources :users, only: :show
-  resources :musics, only: :index
-  get "musics/search/artists", to: "musics#search_artists"
-  get "musics/select/artist", to: "musics#select_artist"
-  get "musics/search/songs", to: "musics#search_songs"
-  get "musics/search/only/songs", to: "musics#search_only_songs"
+  # resources :musics, only: :index
+  # get "musics/search/artists", to: "musics#search_artists"
+  # get "musics/select/artist", to: "musics#select_artist"
+  # get "musics/search/songs", to: "musics#search_songs"
+  # get "musics/search/only/songs", to: "musics#search_only_songs"
+
+  scope :artists do
+    get "/search", to: "artists#search", as: :artists_search
+  end
+  resources :artists, only: [:show]
+  # scope :albums do
+  #   get "/search", to: "album#search", as: :albums_search
+  # end
+  resources :albums, only: [:show]
+  # scope :tracks do
+  #   get "/search", to: "tracks#search", as: :tracks_search
+  # end
 end

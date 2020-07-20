@@ -10,17 +10,4 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_in, keys: [:name, :image])
     devise_parameter_sanitizer.permit(:account_update, keys: [:name, :image])
   end
-
-  def find_track(input)
-    track = RSpotify::Track.find(input)
-  end
-
-  def find_artist(input)
-    artist = RSpotify::Artist.find(input)
-  end
-
-  def search_track(input)
-    track = RSpotify::Track.search(input, limit: 50, market: 'JP')
-  end
-
 end

@@ -1,5 +1,5 @@
-.contents
-  = render "form", {post: @post,artist: @artist, song: @song, release_year: @release_year}
+.main-wrapper
+  = render "form", {post: @post, artist: @artist, track: @track}
   = link_to post_path(@post), method: :delete, data: {confirm: "削除しますか？"} do
     .delete
       投稿を削除

@@ -1,26 +1,23 @@
 .musics
   .music
     .music__artist-image
-      = link_to "#{artist.images[0]["url"]}" do
-        %image{src: "#{artist.images[0]["url"]}", width: "100px", height: "100px"}
+      = link_to "#{track.album.images[0]["url"]}" do
+        %image{src: "#{track.album.images[0]["url"]}", width: "100px", height: "100px"}
     #player
-      %input{class: "song_preview_url", type: "hidden", name: "song_preview_url", value: song.preview_url}
-      %i.fas.fa-play
+      %i.fas.fa-play{id: "track-0", value: track.preview_url}
     %ul.music__info
       %li.music__info__artist
         = artist.name
       %li.music__info__albam
-        = song.album.name
-      %li.music__info__song
-        = song.name
+        = track.album.name
+      %li.music__info__track
+        = track.name
       %li.music__info__release-year
-        = release_year
+        = track.album.release_date.gsub(/-/, "/")
 .form-box
   = form_with model: post, local: true do |f|
-    = f.hidden_field :song_id, value: song.id
-    = f.hidden_field :artist_id, value: artist.id
-    = f.hidden_field :song, value: song.name
-    = f.hidden_field :artist, value: artist.name
+    = f.hidden_field :album_id, value: track.album.id
+    = f.hidden_field :track_id, value: track.id
     = f.text_area :content, class: "text-field"
     %button{type: "submit", class: "send-btn"}
       %i.far.fa-paper-plane

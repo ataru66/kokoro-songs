@@ -7,7 +7,7 @@
         supprted by Spotify
   - if user_signed_in?
     .header__info
-      = link_to musics_path do
+      = link_to artists_search_path do
         %i.fas.fa-pencil-alt.new-post
       = link_to user_path(current_user.id) do
         .header__info__user
@@ -25,7 +25,7 @@
             %i.fas.fa-sign-out-alt
   - else
     .header__info
-      = link_to musics_path do
+      = link_to artists_search_path do
         %i.fas.fa-pencil-alt.new-post
       = link_to "ログイン", new_user_session_path, class: "login"
       = link_to "新規登録", new_user_registration_path, class: "new-registration"

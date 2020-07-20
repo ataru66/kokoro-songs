@@ -1,11 +1,14 @@
 $(function() {
   // プレイヤー
   var audio = new Audio("");
-  var src = $(".song_preview_url").val();
   var state = 0; // 0 stop, 1 play
-  if (src !== undefined) {
-    audio.src = src;
-    $("#player > i").click(function(ev){
+  var playerBtn = $("#player > i");
+  playerBtn.click(function(ev){
+    playerBtn.removeClass("fa-pause");
+    playerBtn.addClass("fa-play");
+    var src = $(this).attr("value");
+    if(src !== undefined) {
+      audio.src = src;
       if(state == 0){
         audio.load();
         audio.play();
@@ -18,6 +21,6 @@ $(function() {
         $(this).addClass("fa-play");
         state = 0;
       }
-    });
-  }
+    }
+  });
 });

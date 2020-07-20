@@ -8,5 +8,7 @@
 @import 'module/header';
 @import 'module/devise';
 @import 'module/main';
-@import 'module/search';
-@import 'module/posts';
+@import 'page/artists/show';
+@import 'page/artists/search';
+@import 'page/albums/show';
+@import 'page/posts/posts';

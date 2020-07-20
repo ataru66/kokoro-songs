@@ -10,7 +10,39 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_26_051711) do
+ActiveRecord::Schema.define(version: 2020_07_16_082735) do
+
+  create_table "albums", id: :string, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "image"
+    t.string "release_date"
+  end
+
+  create_table "artists", id: :string, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "image"
+  end
+
+  create_table "artists_albums", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "artist_id", null: false
+    t.string "album_id", null: false
+    t.index ["album_id"], name: "index_artists_albums_on_album_id"
+    t.index ["artist_id"], name: "index_artists_albums_on_artist_id"
+  end
+
+  create_table "artists_posts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "artist_id", null: false
+    t.bigint "post_id", null: false
+    t.index ["artist_id"], name: "index_artists_posts_on_artist_id"
+    t.index ["post_id"], name: "index_artists_posts_on_post_id"
+  end
+
+  create_table "artists_tracks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "artist_id", null: false
+    t.string "track_id", null: false
+    t.index ["artist_id"], name: "index_artists_tracks_on_artist_id"
+    t.index ["track_id"], name: "index_artists_tracks_on_track_id"
+  end
 
   create_table "musics", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -22,11 +54,17 @@ ActiveRecord::Schema.define(version: 2020_05_26_051711) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "artist_id", null: false
-    t.string "song_id", null: false
-    t.string "artist"
-    t.string "song"
+    t.string "album_id", null: false
+    t.string "track_id", null: false
+    t.index ["album_id"], name: "index_posts_on_album_id"
+    t.index ["track_id"], name: "index_posts_on_track_id"
     t.index ["user_id"], name: "index_posts_on_user_id"
+  end
+
+  create_table "tracks", id: :string, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "album_id", null: false
+    t.index ["album_id"], name: "index_tracks_on_album_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -43,5 +81,14 @@ ActiveRecord::Schema.define(version: 2020_05_26_051711) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "artists_albums", "albums"
+  add_foreign_key "artists_albums", "artists"
+  add_foreign_key "artists_posts", "artists"
+  add_foreign_key "artists_posts", "posts"
+  add_foreign_key "artists_tracks", "artists"
+  add_foreign_key "artists_tracks", "tracks"
+  add_foreign_key "posts", "albums"
+  add_foreign_key "posts", "tracks"
   add_foreign_key "posts", "users"
+  add_foreign_key "tracks", "albums"
 end

@@ -1,0 +1,83 @@
+.album-box {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid;
+  .album-info {
+    height: 150px;
+    width: 70%;
+    text-align: right;
+    padding: 10px;
+    &__artist {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      &--spotify-url {
+        font-size: 40px;
+        .fa-spotify:hover {
+          color: pink;
+        }
+      }
+      &--name {
+        a:hover {
+          color: pink;
+        }
+      }
+    }
+    &--name {
+      font-size: 20px;
+      margin-bottom: 20px;
+    }
+    &--release-date {
+      font-size: small;
+    }
+  }
+}
+.album-tracks {
+  margin: 0 10px;
+  .content-box {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid;
+    .content-left {
+      width: 30px;
+      i {
+        font-size: 14px;
+        width: 10px;
+        margin: 10px;
+      }
+    }
+    .content-right {
+      width: 100%;
+      .select-btn {
+        width: 100%;
+        border: none;
+        .track-info {
+          display: flex;
+          justify-content: space-between;
+          cursor: pointer;
+          line-height: 24px;
+          &__left {
+            display: flex;
+            &--track-number {
+              width: 20px;
+              margin-right: 10px;
+            }
+            &--name {
+              font-size: 16px;
+              &:hover {
+                color: pink;
+              }
+            }
+          }
+          &__right {
+            text-align: right;
+          }
+        }
+      }
+    }
+  }
+}

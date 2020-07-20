@@ -1,4 +1,3 @@
-
 .post
   .post__top
     = link_to user_path(id: post.user.id) do
@@ -18,9 +17,9 @@
   .post__contents
     .post__contents__content
       = post.content
-    = link_to new_post_path(song_id: post.song_id) do
+    = link_to new_post_path(track_id: post.track_id, artist_id: post.artists[0].id) do
       %ul.post__contents__music
         %li.artist
-          = post.artist
+          = post.artists[0].name
         %li.song
-          = post.song
+          = post.track.name

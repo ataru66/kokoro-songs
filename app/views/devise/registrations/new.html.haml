@@ -20,9 +20,9 @@
         = f.label :password, "パスワード"
         - if @minimum_password_length
           %em
-            最小
+            (最小
             = @minimum_password_length
-            文字
+            文字)
         %br/
         = f.password_field :password, autocomplete: "new-password"
       .field

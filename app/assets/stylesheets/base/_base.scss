@@ -24,3 +24,22 @@ a {
   font-weight: normal;
   font-style: normal;
 }
+
+.main {
+  height: 100vh;
+  padding-top: 70px;
+  background-color: black;
+  .main-wrapper {
+    height: 100%;
+    width: 100%;
+    overflow: scroll;
+    @include mq($breakpoint: md) {
+      height: 100%;
+      width: 60%;
+      margin: 0 auto;
+      border: 2px solid;
+      border-top: 0 solid;
+      overflow: scroll;
+    }
+  }
+}

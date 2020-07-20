@@ -1,4 +1,4 @@
-.contents
-  = render "form", {post: @post, artist: @artist, song: @song, release_year: @release_year}
+.main-wrapper
+  = render "form", {post: @post, artist: @artist, track: @track}
   .posts
     = render partial: "posts_new", collection: @posts, as: :post
