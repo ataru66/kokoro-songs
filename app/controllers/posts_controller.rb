@@ -47,7 +47,7 @@ class PostsController < ApplicationController
 
   def update
     @post.update(post_params)
-    redirect_to new_post_path(song_id: @post.song_id)
+    redirect_to new_post_path(track_id: @post.track_id, artist_id: @post.artists[0].id)
   end
 
   def destroy
