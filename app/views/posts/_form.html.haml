@@ -6,8 +6,9 @@
     #player
       %i.fas.fa-play{id: "track-0", value: track.preview_url}
     %ul.music__info
-      %li.music__info__artist
-        = artist.name
+      = link_to artist_path(artist.id) do
+        %li.music__info__artist
+          = artist.name
       %li.music__info__albam
         = track.album.name
       %li.music__info__track
