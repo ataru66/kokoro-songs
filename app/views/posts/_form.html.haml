@@ -9,8 +9,9 @@
       = link_to artist_path(artist.id) do
         %li.music__info__artist
           = artist.name
-      %li.music__info__albam
-        = track.album.name
+      = link_to album_path(track.album.id, artist_id: artist.id) do
+        %li.music__info__albam
+          = track.album.name
       %li.music__info__track
         = track.name
       %li.music__info__release-year
