@@ -63,7 +63,11 @@
     margin: 5px;
     border: none;
     font-size: 18px;
+    &:hover {
       cursor: pointer;
+      .album-info div {
+        color: pink;
+      }
     }
   }
   .album-info {
