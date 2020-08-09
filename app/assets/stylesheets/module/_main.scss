@@ -10,6 +10,9 @@
     &__info {
       font-size: small;
       text-align: center;
+      &__artist:hover {
+        color: pink;
+      }
       &__release-year {
         font-family: monospace;
         text-align: end;
