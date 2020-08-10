@@ -3,8 +3,9 @@
     .music__artist-image
       = link_to "#{track.album.images[0]["url"]}" do
         %image{src: "#{track.album.images[0]["url"]}", width: "100px", height: "100px"}
-    #player
-      %i.fas.fa-play{id: "track-0", value: track.preview_url}
+    - if track.preview_url.present?
+      #player
+        %i.fas.fa-play{id: "track-0", value: track.preview_url}
     %ul.music__info
       = link_to artist_path(artist.id) do
         %li.music__info__artist
