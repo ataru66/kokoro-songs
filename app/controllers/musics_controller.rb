@@ -1,8 +1,5 @@
 class MusicsController < ApplicationController
 
-  # def index
-  # end
-
   # def search_artists
   #   if params[:search].present?
   #     @artists = RSpotify::Artist.search(params[:search], limit: 50, market: 'JP')
