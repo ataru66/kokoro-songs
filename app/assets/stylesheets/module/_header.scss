@@ -43,6 +43,12 @@
           color: pink;
         }
       }
+      &--text {
+        display: none;
+        @include mq($breakpoint: md) {
+          display: inline;
+          font-size: small;
+        }
       }
     }
     &__user {
