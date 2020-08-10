@@ -9,6 +9,8 @@
     .header__info
       = link_to artists_search_path do
         %i.fas.fa-pencil-alt.new-post
+          %span.new-post--text
+            投稿する
       = link_to user_path(current_user.id) do
         .header__info__user
           - if current_user.image.present?
@@ -27,5 +29,7 @@
     .header__info
       = link_to artists_search_path do
         %i.fas.fa-pencil-alt.new-post
+          %span.new-post--text
+            投稿する
       = link_to "ログイン", new_user_session_path, class: "login"
       = link_to "新規登録", new_user_registration_path, class: "new-registration"
