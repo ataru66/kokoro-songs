@@ -39,6 +39,10 @@
       }
       &:hover {
         color: pink;
+        .new-post--text {
+          color: pink;
+        }
+      }
       }
     }
     &__user {
