@@ -56,6 +56,11 @@
     }
     .content-right {
       width: 100%;
+      &:hover {
+        & div {
+          color: pink;
+        }
+      }
       .select-btn {
         width: 100%;
         border: none;
