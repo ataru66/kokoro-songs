@@ -1,8 +1,6 @@
 class MusicsController < ApplicationController
 
-  # def select_artist
-  #   @artist = find_artist(params[:artist_id])
-  # end
+
 
   # def search_songs
   #   @artist = find_artist(params[:artist_id])
