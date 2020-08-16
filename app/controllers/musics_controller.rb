@@ -4,7 +4,6 @@ class MusicsController < ApplicationController
   #   @artist = find_artist(params[:artist_id])
   #   if params[:search].present?
   #     songs = search_track(params[:search])
-
   #   end
   #   respond("select_artist")
   # end
