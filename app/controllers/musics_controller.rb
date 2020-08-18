@@ -3,7 +3,6 @@ class MusicsController < ApplicationController
   # def search_songs
   #   @artist = find_artist(params[:artist_id])
   #   if params[:search].present?
-  
   #   end
   #   respond("select_artist")
   # end
