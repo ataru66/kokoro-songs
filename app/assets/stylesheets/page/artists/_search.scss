@@ -58,11 +58,13 @@
         margin: 0 auto;
         border-bottom: 1px solid;
         text-align: center;
-        .select-btn {
-          font-size: large;
-          &:hover {
+        &:hover {
+          .select-btn {
             color: pink;
           }
+        }
+        .select-btn {
+          font-size: large;
         }
       }
       .contents_with_artists {
