@@ -36,6 +36,11 @@
 }
 .album-tracks {
   margin: 0 10px;
+  &--text {
+    text-align: center;
+    font-size: small;
+    margin-top: 10px;
+  }
   .content-box {
     width: 100%;
     display: flex;
