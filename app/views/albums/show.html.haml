@@ -15,6 +15,8 @@
       .album-info--release-date
         = @album.release_date.gsub(/-/, "/")
   .album-tracks
+    .album-tracks--text
+      曲名をクリックしてください
     - @tracks.each_with_index do |track, i|
       .content-box
         .content-left
