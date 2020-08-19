@@ -65,6 +65,8 @@
     font-size: 18px;
     &:hover {
       cursor: pointer;
+      border: 1px solid;
+      color: pink;
       .album-info div {
         color: pink;
       }
