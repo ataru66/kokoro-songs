@@ -9,8 +9,8 @@
       = link_to "#" do
         曲からさがす
         %i.fas.fa-search
-    .result-text.under ↓please choose artist↓
     .result-text 検索結果
+    .result-text.under ↓ アーティスト名をクリックしてください ↓
     .search__box__result
       - if @artists.present?
         - @artists.each do |artist|
