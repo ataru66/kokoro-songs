@@ -1,11 +1,12 @@
 .post
   .post__top
-    %ul.user
-      - if post.user.image.present?
-        %li.image
-          %image{src: post.user.image}
-      %li.name
-        = post.user.name
+    = link_to user_path(id: post.user.id) do
+      %ul.user
+        - if post.user.image.present?
+          %li.image
+            %image{src: post.user.image}
+        %li.name
+          = post.user.name
     %ul.config
       %li.daytime
         = post.created_at
