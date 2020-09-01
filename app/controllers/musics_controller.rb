@@ -1,6 +1,5 @@
 class MusicsController < ApplicationController
 
-
   # def search_only_songs
   #   if params[:search].present?
   #     @songs = search_track(params[:search])
