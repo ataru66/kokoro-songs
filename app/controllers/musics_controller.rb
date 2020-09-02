@@ -5,7 +5,6 @@ class MusicsController < ApplicationController
   #     @songs = search_track(params[:search])
   #     @artists = search_artist_from_songs(@songs)
   #   end
-
   # end
 
   # private
