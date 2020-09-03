@@ -3,7 +3,6 @@ class MusicsController < ApplicationController
   # def search_only_songs
   #   if params[:search].present?
   #     @songs = search_track(params[:search])
-  #     @artists = search_artist_from_songs(@songs)
   #   end
   # end
 
