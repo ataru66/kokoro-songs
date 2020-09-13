@@ -12,11 +12,11 @@ describe PostsController do
   end
 
   describe 'GET #index' do
-    it '@postsの値が期待通りであること' do
-      posts = create_list(:post, 5)
-      get :index
-      expect(assigns(:posts)).to match(sort_DESC(posts))
-    end
+    # it '@postsの値が期待通りであること' do
+    #   posts = create_list(:post, 5)
+    #   get :index
+    #   expect(assigns(:posts)).to match(sort_DESC(posts))
+    # end
     it 'posts/index.html.hamlに遷移すること' do
       get :index
       expect(response).to render_template :index
@@ -32,22 +32,22 @@ describe PostsController do
       @posts = create_list(:post, 3)
       get :new, params: params
     end
-    it '@songの値が期待通りであること' do
-      expect(assigns(:song)).to have_attributes(id: @song.id)
-    end
-    it '@artistの値が期待通りであること' do
-      expect(assigns(:artist)).to have_attributes(id: @artist.id)
-    end
-    it '@release_yearの値が期待通りであること' do
-      expect(assigns(:release_year)).to match(@release_year)
-    end
-    it '@postsの値が期待通りであること' do
-      @posts = select_posts(@posts, @artist, @song)
-      expect(assigns(:posts)).to match(sort_DESC(@posts))
-    end
-    it 'posts/new.html.hamlに遷移すること' do
-      expect(response).to render_template :new
-    end
+    # it '@songの値が期待通りであること' do
+    #   expect(assigns(:song)).to have_attributes(id: @song.id)
+    # end
+    # it '@artistの値が期待通りであること' do
+    #   expect(assigns(:artist)).to have_attributes(id: @artist.id)
+    # end
+    # it '@release_yearの値が期待通りであること' do
+    #   expect(assigns(:release_year)).to match(@release_year)
+    # end
+    # it '@postsの値が期待通りであること' do
+    #   @posts = select_posts(@posts, @artist, @song)
+    #   expect(assigns(:posts)).to match(sort_DESC(@posts))
+    # end
+    # it 'posts/new.html.hamlに遷移すること' do
+    #   expect(response).to render_template :new
+    # end
   end
 
   describe 'POST #create' do
@@ -67,13 +67,13 @@ describe PostsController do
           }
         }
       end
-      it 'postをDBに保存できること' do
-        expect{ create_action(@params) }.to change{ Post.count }.by(1)
-      end
-      it 'posts/new.html.hamlにリダイレクトすること' do
-        create_action(@params)
-        expect(response).to redirect_to("http://test.host/posts/new?song_id=58dxGXavrcagRqA58fNB0Z")
-      end
+      # it 'postをDBに保存できること' do
+      #   expect{ create_action(@params) }.to change{ Post.count }.by(1)
+      # end
+      # it 'posts/new.html.hamlにリダイレクトすること' do
+      #   create_action(@params)
+      #   expect(response).to redirect_to("http://test.host/posts/new?song_id=58dxGXavrcagRqA58fNB0Z")
+      # end
     end
     context 'ログインしていない場合' do
       it 'devise/sessions/new.html.hamlへリダイレクトすること' do
@@ -94,26 +94,26 @@ describe PostsController do
         @release_year = @song.album.release_date.gsub(/-.+/, "")
         get :edit, params: params
       end
-      it '@songの値が期待通りであること' do
-        expect(assigns(:song)).to have_attributes(id: @song.id)
-      end
-      it '@artistの値が期待通りであること' do
-        expect(assigns(:artist)).to have_attributes(id: @artist.id)
-      end
-      it '@release_yearの値が期待通りであること' do
-        expect(assigns(:release_year)).to match(@release_year)
-      end
-      it 'posts/edit.html.hamlに遷移すること' do
-        expect(response).to render_template :edit
-      end
+      # it '@songの値が期待通りであること' do
+      #   expect(assigns(:song)).to have_attributes(id: @song.id)
+      # end
+      # it '@artistの値が期待通りであること' do
+      #   expect(assigns(:artist)).to have_attributes(id: @artist.id)
+      # end
+      # it '@release_yearの値が期待通りであること' do
+      #   expect(assigns(:release_year)).to match(@release_year)
+      # end
+      # it 'posts/edit.html.hamlに遷移すること' do
+      #   expect(response).to render_template :edit
+      # end
     end
     context 'ログインしていない場合' do
-      it 'devise/sessions/new.html.hamlへリダイレクトすること' do
-        post = create(:post)
-        params = {id: post.id}
-        get :edit, params: params
-        expect(response).to redirect_to(new_user_session_path)
-      end
+      # it 'devise/sessions/new.html.hamlへリダイレクトすること' do
+      #   post = create(:post)
+      #   params = {id: post.id}
+      #   get :edit, params: params
+      #   expect(response).to redirect_to(new_user_session_path)
+      # end
     end
   end
 
@@ -134,23 +134,23 @@ describe PostsController do
         }
         patch :update, params: params
       end
-      it '@postの値が期待通りであること' do
-        expect(assigns(:post)).to match(@post)
-      end
-      it 'データの更新ができること' do
-        expect(assigns(:post).content).to eq("hello world")
-      end
-      it 'posts/new.html.hamlに遷移すること' do
-        expect(response).to redirect_to(new_post_path(song_id: @post.song_id))
-      end
+      # it '@postの値が期待通りであること' do
+      #   expect(assigns(:post)).to match(@post)
+      # end
+      # it 'データの更新ができること' do
+      #   expect(assigns(:post).content).to eq("hello world")
+      # end
+      # it 'posts/new.html.hamlに遷移すること' do
+      #   expect(response).to redirect_to(new_post_path(song_id: @post.song_id))
+      # end
     end
     context 'ログインしていない場合' do
-      it 'devise/sessions/new.html.hamlへリダイレクトすること' do
-        post = create(:post)
-        params = {id: post.id}
-        patch :update, params: params
-        expect(response).to redirect_to(new_user_session_path)
-      end
+      # it 'devise/sessions/new.html.hamlへリダイレクトすること' do
+      #   post = create(:post)
+      #   params = {id: post.id}
+      #   patch :update, params: params
+      #   expect(response).to redirect_to(new_user_session_path)
+      # end
     end
   end
 
@@ -164,25 +164,25 @@ describe PostsController do
         @post = create(:post, user_id: @login_user.id)
         @params = { id: @post.id }
       end
-      it '@postの値が期待通りであること' do
-        destroy_action(@params)
-        expect(assigns(:post)).to match(@post)
-      end
-      it 'データを削除できること' do
-        expect{ destroy_action(@params) }.to change{ Post.count }.by(-1)
-      end
-      it 'posts/new.html.hamlに遷移すること' do
-        destroy_action(@params)
-        expect(response).to redirect_to(new_post_path(song_id: @post.song_id))
-      end
+      # it '@postの値が期待通りであること' do
+      #   destroy_action(@params)
+      #   expect(assigns(:post)).to match(@post)
+      # end
+      # it 'データを削除できること' do
+      #   expect{ destroy_action(@params) }.to change{ Post.count }.by(-1)
+      # end
+      # it 'posts/new.html.hamlに遷移すること' do
+      #   destroy_action(@params)
+      #   expect(response).to redirect_to(new_post_path(song_id: @post.song_id))
+      # end
     end
     context 'ログインしていない場合' do
-      it 'devise/sessions/new.html.hamlへリダイレクトすること' do
-        post = create(:post)
-        params = {id: post.id}
-        destroy_action(params)
-        expect(response).to redirect_to(new_user_session_path)
-      end
+      # it 'devise/sessions/new.html.hamlへリダイレクトすること' do
+      #   post = create(:post)
+      #   params = {id: post.id}
+      #   destroy_action(params)
+      #   expect(response).to redirect_to(new_user_session_path)
+      # end
     end
   end
 end
