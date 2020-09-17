@@ -4,6 +4,11 @@ RSpec.describe Post, type: :model do
   describe 'validates' do
     before do
       @user = create(:user)
+      artist = create(:artist)
+      album = create(:album)
+      track = create(:track)
+      artists_album = create(:artists_album)
+      artists_track = create(:artists_track)
       @post = build(:post)
     end
 
