@@ -14,11 +14,11 @@ RSpec.describe Post, type: :model do
 
     context '保存できない場合' do
 
-      # it 'contentカラムが空だと保存できないこと' do
-      #   @post.content = ""
-      #   @post.valid?
-      #   expect(@post.errors[:content]).to include("can't be blank")
-      # end
+      it 'contentカラムが空だと保存できないこと' do
+        @post.content = ""
+        @post.valid?
+        expect(@post.errors[:content]).to include("can't be blank")
+      end
 
       # it 'artist_idカラムが空だと保存できないこと' do
       #   @post.artist_id = ""
